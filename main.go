@@ -45,6 +45,9 @@ func main() {
 
 	median := functions.Median(data)
 
+	variance := functions.Variance(avarage, data)
+
 	fmt.Println("Average:", avarage)
+	fmt.Println("Variance:", variance)
 	fmt.Println("Median:", median)
 }
