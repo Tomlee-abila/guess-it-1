@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"os"
-	"sort"
 	"strconv"
 	"strings"
+	"math-skills/functions"
 )
 
 func main() {
@@ -22,12 +22,12 @@ func main() {
 	}
 
 	dataString := strings.Split(string(dataFileContent), "\n")
-	var data []int
-	sum := 0
+	var data []float64
+	var sum float64 = 0.0
 	for _, str := range dataString {
 		str = strings.TrimSpace(str)
 		if !(str == "") {
-			num, err := strconv.Atoi(str)
+			num, err := strconv.ParseFloat(str, 64)
 			if err != nil {
 				fmt.Println("Error converting string to int:", err)
 				return
@@ -41,24 +41,10 @@ func main() {
 		return
 	}
 
-	avarage := sum/len(data)
+	avarage := functions.Avarage(sum, data)
 
-	median := Median(data)
+	median := functions.Median(data)
 
 	fmt.Println("Average:", avarage)
 	fmt.Println("Median:", median)
-}
-
-func Median(intData []int) int {
-	sort.Ints(intData) // Sort the slice
-
-	var median int
-	n := len(intData)
-
-	if n%2 == 0 {
-		median = (intData[n/2-1] + intData[n/2]) / 2
-	} else {
-		median = (intData[n/2])
-	}
-	return median
 }
