@@ -50,7 +50,8 @@ func main() {
 	standardDeviation := functions.StandardDeviation(variance)
 
 	fmt.Println("Average:", avarage)
+	fmt.Println("Median:", median)
 	fmt.Println("Variance:", variance)
 	fmt.Println("Standard Deviation:", standardDeviation)
-	fmt.Println("Median:", median)
+	
 }
