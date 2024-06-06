@@ -47,7 +47,10 @@ func main() {
 
 	variance := functions.Variance(avarage, data)
 
+	standardDeviation := functions.StandardDeviation(variance)
+
 	fmt.Println("Average:", avarage)
 	fmt.Println("Variance:", variance)
+	fmt.Println("Standard Deviation:", standardDeviation)
 	fmt.Println("Median:", median)
 }
