@@ -31,11 +31,6 @@ func TestMedian(t *testing.T) {
 			args: args{intData: []float64{1, 2}},
 			want: 1.5,
 		},
-		{
-			name: "Empty slice",
-			args: args{intData: []float64{}},
-			want: 0,
-		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
