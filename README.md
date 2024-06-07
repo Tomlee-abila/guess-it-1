@@ -1,7 +1,7 @@
 # Math Skills
 
 ## Description
-This code reads from a file, the data present in the path passed as argument and print the result of Average, Median, Variance and Standard Deviation.
+This code reads from a file, the data is presented in the path passed as argument and print the result of Average, Median, Variance and Standard Deviation.
 The data in the file should be presented as the following example:
 ```bash
 189
