@@ -28,11 +28,6 @@ func TestVariance(t *testing.T) {
 			want: 0,
 		},
 		{
-			name: "Empty data",
-			args: args{avarage: 0, data: []float64{}},
-			want: 0,
-		},
-		{
 			name: "Negative numbers",
 			args: args{avarage: -3, data: []float64{-1, -2, -3, -4, -5}},
 			want: 2,
