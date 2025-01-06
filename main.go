@@ -3,55 +3,43 @@ package main
 import (
 	"fmt"
 	"os"
-	"strconv"
-	"strings"
-	"math-skills/functions"
+
+	"guess-it/functions"
+	// "strconv"
+	// "strings"
 )
 
 func main() {
-	if len(os.Args) != 2 {
+	if len(os.Args) != 1 {
 		fmt.Println("To run this program a command similar to this should be run\ngo run . <your data text file>")
 		return
 	}
-
-	dataFile := os.Args[1]
-
-	dataFileContent, err := os.ReadFile(dataFile)
-	if err != nil {
-		fmt.Println("error reading", dataFile, err)
-	}
-
-	dataString := strings.Split(string(dataFileContent), "\n")
 	var data []float64
+	var number float64
 	var sum float64 = 0.0
-	for _, str := range dataString {
-		str = strings.TrimSpace(str)
-		if !(str == "") {
-			num, err := strconv.ParseFloat(str, 64)
-			if err != nil {
-				fmt.Println("Error converting string to int:", err)
-				return
-			}
-			data = append(data, num)
-			sum += num
+
+	for {
+
+		_, err := fmt.Scan(&number)
+
+		if err != nil {
+			fmt.Println("Ivalid input", err)
+		} else {
+			data = append(data, number)
+			sum += number
 		}
+
+		average := functions.Avarage(sum, data)
+
+		variance := functions.Variance(average, data)
+
+		standardDeviation := functions.StandardDeviation(variance)
+		diff := standardDeviation * 2
+		fmt.Printf("%.0f %.0f\n", (average-diff), (average+diff))
+
+
+		// fmt.Printf("Average: %0.0f\n", average)
+		// fmt.Printf("Variance: %0.0f\n", variance)
+		// fmt.Printf("Standard Deviation: %0.0f\n", standardDeviation)
 	}
-	if len(data) == 0{
-		fmt.Println("The file", dataFile,"is empty")
-		return
-	}
-
-	avarage := functions.Avarage(sum, data)
-
-	median := functions.Median(data)
-
-	variance := functions.Variance(avarage, data)
-
-	standardDeviation := functions.StandardDeviation(variance)
-
-	fmt.Printf("Average: %0.0f\n", avarage)
-	fmt.Printf("Median: %0.0f\n", median)
-	fmt.Printf("Variance: %0.0f\n", variance)
-	fmt.Printf("Standard Deviation: %0.0f\n", standardDeviation)
-	
 }
