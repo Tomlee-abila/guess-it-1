@@ -1,3 +1,4 @@
 #!/bin/bash
 
-go run ./student/main.go
+cd student
+go run main.go
