@@ -11,18 +11,15 @@ import (
 
 func main() {
 	if len(os.Args) != 1 {
-		fmt.Println("To run this program a command similar to this should be run\ngo run . <your data text file>")
+		fmt.Println("To run this program a command similar to this should be run\ngo run ." )
 		return
 	}
 	var data []float64
-	// var number float64
 	var sum float64 = 0.0
 
 	scanner := bufio.NewScanner(os.Stdin)
 
 	for scanner.Scan() {
-
-		// _, err := fmt.Scan(&number)
 		value := scanner.Text()
 		number, err := strconv.ParseFloat(value, 64)
 
@@ -45,9 +42,5 @@ func main() {
 			lowr = 0
 		}
 		fmt.Printf("%.0f %.0f\n", lowr, uppr)
-
-		// fmt.Printf("Average: %0.0f\n", average)
-		// fmt.Printf("Variance: %0.0f\n", variance)
-		// fmt.Printf("Standard Deviation: %0.0f\n", standardDeviation)
 	}
 }

@@ -1,22 +1,12 @@
-# Math Skills
+# Guess it 1
 
-## Description
-This code reads from a file, the data is presented in the path passed as argument and print the result of Average, Median, Variance and Standard Deviation.
-The data in the file should be presented as the following example:
+## Overview of the Program
+The program reads numerical data from standard input, computes the average, variance, and standard deviation, and finally prints a confidence interval (± 2 times the standard deviation) around the average. The lower bound of the confidence interval is adjusted to 0 if it is negative.
+
+How to Run the Program
+
+1. The program doesn't accept any command-line arguments, but you can execute it as follows:
 ```bash
-189
-113
-121
-114
-145
-110
-...
+go run .
 ```
-
-To run this program use a command similar to this one:
-
-```bash
-$> go run main.go data.txt
-```
-
-The values are rounded integers.
+2. After running the program, provide numerical input interactively via the terminal.
