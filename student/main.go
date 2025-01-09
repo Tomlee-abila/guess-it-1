@@ -38,8 +38,13 @@ func main() {
 		variance := functions.Variance(average, data)
 
 		standardDeviation := functions.StandardDeviation(variance)
-		diff := standardDeviation * 3
-		fmt.Printf("%.0f %.0f\n", (average - diff), (average + diff))
+		diff := standardDeviation * 2	
+		uppr := average + diff
+		lowr := average - diff
+		if lowr < 0 {
+			lowr = 0
+		}
+		fmt.Printf("%.0f %.0f\n", lowr, uppr)
 
 		// fmt.Printf("Average: %0.0f\n", average)
 		// fmt.Printf("Variance: %0.0f\n", variance)
