@@ -5,8 +5,6 @@ import (
 	"os"
 
 	"guess-it/functions"
-	// "strconv"
-	// "strings"
 )
 
 func main() {
@@ -35,8 +33,7 @@ func main() {
 
 		standardDeviation := functions.StandardDeviation(variance)
 		diff := standardDeviation * 2
-		fmt.Printf("%.0f %.0f\n", (average-diff), (average+diff))
-
+		fmt.Printf("%.0f %.0f\n", (average - diff), (average + diff))
 
 		// fmt.Printf("Average: %0.0f\n", average)
 		// fmt.Printf("Variance: %0.0f\n", variance)
