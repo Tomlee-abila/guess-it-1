@@ -20,6 +20,13 @@ func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 
 	for scanner.Scan() {
+		if len(data) > 4{
+			sum = 0
+			data = data[len(data)-3:]
+			for _, num := range data{
+				sum += num
+			}
+		}
 		value := scanner.Text()
 		number, err := strconv.ParseFloat(value, 64)
 
@@ -38,9 +45,9 @@ func main() {
 		diff := standardDeviation * 2	
 		uppr := average + diff
 		lowr := average - diff
-		if lowr < 0 {
-			lowr = 0
-		}
-		fmt.Printf("%.0f %.0f\n", lowr, uppr)
+		
+		if len(data) > 1{
+			fmt.Printf("%.0f %.0f\n", lowr, uppr)
+		}		
 	}
 }
